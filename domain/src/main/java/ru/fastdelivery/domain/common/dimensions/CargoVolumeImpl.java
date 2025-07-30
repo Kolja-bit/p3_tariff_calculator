@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public record CargoVolumeImpl(BigInteger length,
-                              BigInteger width, BigInteger height) implements CargoVolume{
+                              BigInteger width, BigInteger height) {
     private static final BigInteger SIZE_MAX=new BigInteger(String.valueOf(1500));
 
     public BigDecimal getVolumeOfOnePackage(){
@@ -14,8 +14,6 @@ public record CargoVolumeImpl(BigInteger length,
         BigDecimal resultLength=roundingOfPackagingDimensions(length);
         BigDecimal resultWidth=roundingOfPackagingDimensions(width);
         BigDecimal resultHeight=roundingOfPackagingDimensions(height);
-        /*new TotalVolume(calculationOfCargoPackagingVolume(resultLength,
-                resultWidth, resultHeight));*/
         BigDecimal volumeOfOnePackage = calculationOfCargoPackagingVolume(resultLength,
                 resultWidth, resultHeight);
         return volumeOfOnePackage;

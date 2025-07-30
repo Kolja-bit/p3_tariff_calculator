@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 public class PricesRublesProperties implements WeightPriceProvider {
 
     private BigDecimal perKg;
+    private BigDecimal perSquareMeter;
     private BigDecimal minimal;
 
     @Autowired
@@ -31,4 +32,6 @@ public class PricesRublesProperties implements WeightPriceProvider {
     public Price minimalPrice() {
         return new Price(minimal, currencyFactory.create("RUB"));
     }
+    @Override
+    public Price costPerSquareMeter(){return new Price(perSquareMeter, currencyFactory.create("RUB"));}
 }
