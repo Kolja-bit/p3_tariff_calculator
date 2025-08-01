@@ -32,9 +32,9 @@ public record CargoVolumeImpl(BigInteger length,
         return resultParameter;
     }
     public boolean sizeСheck(BigInteger size){
-        boolean control=false;
-        if ( BigInteger.ZERO.compareTo(size)<=0 || SIZE_MAX.compareTo(size)<=0){
-            control = true;
+        boolean control=true;
+        if ( BigInteger.ZERO.compareTo(size)<0 && SIZE_MAX.compareTo(size)>0){
+            control = false;
         }
         return control;
     }
